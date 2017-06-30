@@ -24,14 +24,20 @@ monsterFunc.prototype={
     move() {
         this.x += this.speedX;
         this.y += this.speedY;
-        if (this.x>this.width-2*this.monsterWidth) {
-            this.speedX = -this.speedX;
+        if(this.speedX==0){
+            this.speedX=this.rand(10);
+        }
+        if(this.speedY==0){
+            this.speedY=this.rand(10);
+        }
+        if (this.x>=this.width-2*this.monsterWidth) {
+            this.speedX = -Math.abs(this.speedX);
         }
         if (this.x<this.monsterWidth) {
             this.speedX = Math.abs(this.speedX);
         }
         if (this.y>this.height-2*this.monsterHeight) {
-            this.speedY = -this.speedY;
+            this.speedY = -Math.abs(this.speedY);
         }
         if (this.y<this.monsterHeight) {
             this.speedY = Math.abs(this.speedY);
